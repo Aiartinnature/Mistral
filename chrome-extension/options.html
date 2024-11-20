@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mistral Chat Extension Options</title>
+    <style>
+        body {
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f8f9fa;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        input[type="password"], select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        select {
+            background-color: white;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        #save {
+            background: #0d6efd;
+            color: white;
+        }
+        #save:hover {
+            background: #0b5ed7;
+        }
+        #show {
+            background: #6c757d;
+            color: white;
+        }
+        #show:hover {
+            background: #5c636a;
+        }
+        .status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .model-info {
+            font-size: 13px;
+            color: #6c757d;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mistral Chat Extension Options</h1>
+        <div class="form-group">
+            <label for="model">Mistral Model:</label>
+            <select id="model">
+                <option value="mistral-tiny">Mistral Tiny (Fast, Efficient)</option>
+                <option value="mistral-small">Mistral Small (Balanced)</option>
+                <option value="mistral-medium">Mistral Medium (Most Capable)</option>
+            </select>
+            <div class="model-info">
+                Select the model that best fits your needs. Larger models are more capable but may be slower.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="apiKey">Mistral API Key:</label>
+            <input type="password" id="apiKey" placeholder="Enter your Mistral API key">
+            <div class="button-group">
+                <button id="save">Save</button>
+                <button id="show">Show/Hide</button>
+            </div>
+            <div id="status" class="status"></div>
+        </div>
+        <p>
+            Don't have an API key? Get one from 
+            <a href="https://console.mistral.ai/" target="_blank">Mistral AI Console</a>
+        </p>
+    </div>
+    <script src="options.js"></script>
+</body>
+</html>

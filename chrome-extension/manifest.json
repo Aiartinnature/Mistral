@@ -1,0 +1,56 @@
+{
+  // Manifest version for Chrome Extensions (V3 is current standard)
+  "manifest_version": 3,
+
+  // Extension name as shown in Chrome
+  "name": "Mistral Chat",
+
+  // Extension version number
+  "version": "1.0",
+
+  // Brief description of the extension's functionality
+  "description": "Chat with Mistral AI about any webpage",
+
+  // Required permissions for extension functionality
+  "permissions": [
+    // Access to chrome.storage API for saving settings
+    "storage",
+    // Access to current tab information
+    "activeTab",
+    // Ability to inject and execute scripts
+    "scripting"
+  ],
+
+  // Extension toolbar button configuration
+  "action": {
+    "default_title": "Mistral Chat"
+  },
+
+  // Background service worker for handling API requests
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  // Options page for API key and model configuration
+  "options_page": "options.html",
+
+  // Content scripts injected into web pages
+  "content_scripts": [
+    {
+      // Match pattern for script injection
+      "matches": ["<all_urls>"],
+      // Scripts to be injected
+      "js": ["content.js"]
+    }
+  ],
+
+  // Resources that can be accessed by web pages
+  "web_accessible_resources": [
+    {
+      // Sidebar interface files
+      "resources": ["sidebar.html", "sidebar.js", "sidebar.css"],
+      // Allow access from all URLs
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

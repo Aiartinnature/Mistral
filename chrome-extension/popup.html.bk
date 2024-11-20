@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mistral Chat Assistant</title>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+
+    #settings {
+      flex: 0 0 auto;
+      margin-bottom: 16px;
+    }
+
+    .settings-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    #chat-container {
+      flex: 1 1 auto;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+      min-height: 200px;
+    }
+
+    .message {
+      margin-bottom: 12px;
+      padding: 8px;
+      border-radius: 8px;
+      word-wrap: break-word;
+      max-width: 85%;
+    }
+
+    .user-message {
+      background-color: #e3f2fd;
+      margin-left: auto;
+    }
+
+    .assistant-message {
+      background-color: #f5f5f5;
+      margin-right: auto;
+    }
+
+    #input-container {
+      flex: 0 0 auto;
+      display: flex;
+      gap: 8px;
+    }
+
+    #message-input {
+      flex-grow: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      min-height: 20px;
+      resize: vertical;
+    }
+
+    #send-button {
+      padding: 8px 16px;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #send-button:hover {
+      background-color: #1557b0;
+    }
+
+    select, input[type="number"] {
+      padding: 4px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #new-chat {
+      padding: 4px 8px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #new-chat:hover {
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="settings">
+      <div class="settings-row">
+        <select id="model-select">
+          <option value="mistral-small-latest">Mistral Small</option>
+          <option value="mistral-medium-latest">Mistral Medium</option>
+          <option value="mistral-large-latest">Mistral Large</option>
+        </select>
+        <input type="number" id="temperature" min="0" max="1" step="0.1" value="0.7" title="Temperature">
+        <button id="new-chat">New Chat</button>
+      </div>
+    </div>
+    
+    <div id="chat-container"></div>
+    
+    <div id="input-container">
+      <textarea id="message-input" placeholder="Type your message..." rows="1"></textarea>
+      <button id="send-button">Send</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
